@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package TelasPI;
 
 import classespi.CadClien;
@@ -10,20 +7,15 @@ import classespi.InfoCliente;
 import classespi.PI;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Guikade
- */
+
 public class telaCadCliente extends javax.swing.JFrame {
     InfoCliente cliente = new InfoCliente();
-    /**
-     * Creates new form telaLogin
-     */
+    
     public telaCadCliente() {
         initComponents();
         
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,21 +39,21 @@ public class telaCadCliente extends javax.swing.JFrame {
                 nomeActionPerformed(evt);
             }
         });
-        getContentPane().add(nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 110, 40));
+        getContentPane().add(nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 110, 40));
 
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailActionPerformed(evt);
             }
         });
-        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 110, 40));
+        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 110, 30));
 
         senha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 senhaActionPerformed(evt);
             }
         });
-        getContentPane().add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 110, 40));
+        getContentPane().add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 110, 30));
 
         botaocadastrar.setText("CADASTRAR");
         botaocadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +61,7 @@ public class telaCadCliente extends javax.swing.JFrame {
                 botaocadastrarActionPerformed(evt);
             }
         });
-        getContentPane().add(botaocadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 100, 30));
+        getContentPane().add(botaocadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 100, 20));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/TelaCadClient.png"))); // NOI18N
         background.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -81,7 +73,7 @@ public class telaCadCliente extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 810, 420));
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -95,7 +87,7 @@ public class telaCadCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_backgroundAncestorAdded
 
     private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
-        
+       
     }//GEN-LAST:event_nomeActionPerformed
 
     private void senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaActionPerformed
@@ -108,11 +100,17 @@ public class telaCadCliente extends javax.swing.JFrame {
         boolean conec = true;
         int resposta;
         
+        
         cliente.setNome(nome.getText());
         cliente.setEmail(email.getText());
         cliente.setSenha(senha.getText());
-        
-        co.getconection();
+     
+        if(nome.getText().trim().isEmpty()||email.getText().trim().isEmpty() || senha.getText().trim().isEmpty()){
+            JOptionPane.showConfirmDialog(null, "Preencha todos os campos ");
+            return;
+        }else{
+           
+        co.getConnection();
         if(conec == false){
                 JOptionPane.showMessageDialog(null, "erro de conexão");
             }else{
@@ -120,21 +118,19 @@ public class telaCadCliente extends javax.swing.JFrame {
                 if (resposta == 1){
                     JOptionPane.showMessageDialog(null, "Cliente foi cadastrado");
                 }
+        
         }
     }//GEN-LAST:event_botaocadastrarActionPerformed
-
-    /**
-     *
-     * @param args
-     */
-    
+    }
+        
+        
 public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new telaCadCliente().setVisible(true);
             }
         });
-    }
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     private javax.swing.JButton botaocadastrar;
@@ -142,5 +138,4 @@ public static void main(String args[]) {
     private javax.swing.JTextField nome;
     private javax.swing.JTextField senha;
     // End of variables declaration//GEN-END:variables
-
 }

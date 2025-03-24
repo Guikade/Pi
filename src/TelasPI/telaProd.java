@@ -4,9 +4,12 @@
  */
 package TelasPI;
 
+import classespi.CadProd;
 import classespi.InfoProduto;
+import classespi.PI;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -118,14 +121,34 @@ public class telaProd extends javax.swing.JFrame {
     }//GEN-LAST:event_produtonomeActionPerformed
 
     private void botaoadicionarlistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoadicionarlistaActionPerformed
+        CadProd funcao = new CadProd();
+        PI co = new PI();
+        int resposta;
+        boolean conec = true;
         double converter = Double.parseDouble(valorpreco.getText());
         produto.setNome(produtonome.getText());
         produto.setValor(converter);
         
-        DefaultTableModel model = (DefaultTableModel) tabela.getModel();
+        
+        if(produtonome.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos para validar o cadastro");
+        }else if(valorpreco.getText().trim().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Preencha todos os campos para validar o cadastro");
+} else{
+          
+       DefaultTableModel model = (DefaultTableModel) tabela.getModel();
         model.addRow(new Object[]{produto.getNome(),produto.getValor()});
         
-        
+       co.getConnection();
+        if(conec == false){
+                JOptionPane.showMessageDialog(null, "erro de conexão");
+            }else{
+                resposta = funcao.CADASTRAR(produto);
+                if (resposta == 1){
+                    JOptionPane.showMessageDialog(null, "Cliente foi cadastrado");
+                }
+        }
+        }
     }//GEN-LAST:event_botaoadicionarlistaActionPerformed
 
     private void tabelaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tabelaAncestorAdded

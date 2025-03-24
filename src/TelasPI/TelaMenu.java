@@ -10,6 +10,7 @@ import java.awt.PopupMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,9 +34,17 @@ public class TelaMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         botaoCliente = new javax.swing.JButton();
         BotaoProduto = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        botaoteste = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+
+        jLabel1.setText("jLabel1");
+
+        jLabel3.setText("jLabel3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -48,17 +57,33 @@ public class TelaMenu extends javax.swing.JFrame {
         });
         getContentPane().add(botaoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 160, -1));
 
-        BotaoProduto.setText("PRODUTO CADASTRO");
+        BotaoProduto.setText("ESTOQUE");
         BotaoProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoProdutoActionPerformed(evt);
             }
         });
-        getContentPane().add(BotaoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 160, -1));
+        getContentPane().add(BotaoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 160, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/TelaMenuOpcao.png"))); // NOI18N
         jLabel2.setText(" ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 450));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 450));
+
+        botaoteste.setText("jButton1");
+        botaoteste.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaotesteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botaoteste, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, -1, -1));
+
+        jTextField1.setText("jTextField1");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -73,6 +98,18 @@ public class TelaMenu extends javax.swing.JFrame {
         telaProd produto = new telaProd();
         produto.setVisible(true);
     }//GEN-LAST:event_BotaoProdutoActionPerformed
+
+    private void botaotesteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaotesteActionPerformed
+        if(jTextField1.getText().trim().isEmpty()){
+            JOptionPane.showConfirmDialog(null, "");
+            System.out.println("Está entrando no botao");
+        }
+
+    }//GEN-LAST:event_botaotesteActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
      /*  button.addActionListener(new ActionListener() {
             @Override
@@ -116,6 +153,10 @@ public class TelaMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoProduto;
     private javax.swing.JButton botaoCliente;
+    private javax.swing.JButton botaoteste;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
